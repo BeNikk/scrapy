@@ -18,8 +18,6 @@ export interface GitHubRepo {
 export async function fetchTrendingRepos(): Promise<GitHubRepo[]> {
   const browser = await chromium.launch({ headless: false });
   const page = await browser.newPage();
-
-  
   try {
     await page.goto('https://github.com/trending', { waitUntil: 'networkidle' });
     
